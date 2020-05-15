@@ -58,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    @Override
     public void displayChatMessages(){
         ListView listOfMessages = findViewById(R.id.list_of_messages);
         Query query = FirebaseDatabase.getInstance().getReference().child("chats");
@@ -83,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
         listOfMessages.setAdapter(adapter);
     }
 
+    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -100,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
-        //getMenuInflater().inflate(R.menu.main_menu, menu);
+        getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
 
