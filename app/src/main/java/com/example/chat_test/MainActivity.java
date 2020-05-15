@@ -26,7 +26,7 @@ import com.google.firebase.database.Query;
 
 
 public class MainActivity extends AppCompatActivity {
-    private static int SIGN_IN_REQUEST_CODE;
+    private static final int RC_SIGN_IN = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         if (FirebaseAuth.getInstance().getCurrentUser() == null){
-            startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder().build(), SIGN_IN_REQUEST_CODE);
+            startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder().setIsSmartLockEnabled(false).build(), RC_SIGN_IN);
         } else {
             Toast.makeText(this, "welcome" + FirebaseAuth.getInstance().
                     getCurrentUser().getDisplayName(), Toast.LENGTH_LONG).show();
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
 
-        //if (requestCode == SIGN_IN_REQUEST_CODE){
+        if (requestCode == RC_SIGN_IN){
             if (requestCode == RESULT_OK){
                 Toast.makeText(this,"Singed in", Toast.LENGTH_LONG).show();
                 displayChatMessages();
@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
                 finish();
             }
-        //}
+        }
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
