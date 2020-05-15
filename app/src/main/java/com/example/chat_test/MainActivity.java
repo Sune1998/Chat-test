@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -88,17 +89,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == RC_SIGN_IN){
-            if (requestCode == RESULT_OK){
+        Log.d("SUNE", "Koden er = "  + requestCode);
+
+            if (requestCode == 0){
                 Toast.makeText(this,"Singed in", Toast.LENGTH_LONG).show();
                 displayChatMessages();
             } else {
-                Toast.makeText(this, "Bruh", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Not signed in", Toast.LENGTH_LONG).show();
 
                 finish();
             }
-        }
     }
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.main_menu, menu);
