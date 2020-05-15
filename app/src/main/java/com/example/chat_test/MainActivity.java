@@ -26,7 +26,7 @@ import com.google.firebase.database.Query;
 
 
 public class MainActivity extends AppCompatActivity {
-    private static final int SIGN_IN_REQUEST_CODE = 1;
+    private static int SIGN_IN_REQUEST_CODE;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    @Override
+
     public void displayChatMessages(){
         ListView listOfMessages = findViewById(R.id.list_of_messages);
         Query query = FirebaseDatabase.getInstance().getReference().child("chats");
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == SIGN_IN_REQUEST_CODE){
+        //if (requestCode == SIGN_IN_REQUEST_CODE){
             if (requestCode == RESULT_OK){
                 Toast.makeText(this,"Singed in", Toast.LENGTH_LONG).show();
                 displayChatMessages();
@@ -97,9 +97,8 @@ public class MainActivity extends AppCompatActivity {
 
                 finish();
             }
-        }
+        //}
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.main_menu, menu);
