@@ -17,7 +17,7 @@ public class ChatMessage {
     public ChatMessage(){
 
     }
-    public String getMessageText() {
+    String getMessageText() {
         return messageText;
     }
 
@@ -25,7 +25,7 @@ public class ChatMessage {
         this.messageText = messageText;
     }
 
-    public String getMessageUser() {
+    String getMessageUser() {
         return messageUser;
     }
 

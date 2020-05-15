@@ -44,15 +44,15 @@
     android:dividerHeight="16dp"
     android:divider="@android:color/transparent"
     android:id="@+id/list_of_messages"
-    android:layout_marginBottom="16dp"
-        tools:ignore="AdapterViewChildren">
-
-        <EditText
-            android:id="@+id/Input"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:autofillHints=""
-            android:hint="@string/app_name"
-            android:inputType="textAutoComplete" />
+    android:layout_marginBottom="16dp" >
     </ListView>
+
+    <EditText
+        android:id="@+id/input"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:autofillHints=""
+        android:hint="@string/app_name"
+        android:inputType="textAutoComplete" />
+
 </RelativeLayout>
