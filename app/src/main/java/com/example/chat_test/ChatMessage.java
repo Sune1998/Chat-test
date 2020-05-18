@@ -7,7 +7,7 @@ public class ChatMessage {
     private String messageUser;
     private long messageTime;
 
-    ChatMessage(String messageText, String messageUser){
+    public ChatMessage (String messageText, String messageUser){
         this.messageText = messageText;
         this.messageUser = messageUser;
 
@@ -17,7 +17,7 @@ public class ChatMessage {
     public ChatMessage(){
 
     }
-    String getMessageText() {
+   public String getMessageText() {
         return messageText;
     }
 
@@ -25,7 +25,7 @@ public class ChatMessage {
         this.messageText = messageText;
     }
 
-    String getMessageUser() {
+    public String getMessageUser() {
         return messageUser;
     }
 

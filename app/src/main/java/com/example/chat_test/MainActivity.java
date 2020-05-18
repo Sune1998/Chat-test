@@ -29,6 +29,7 @@ import com.google.firebase.database.Query;
 public class MainActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 0;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 EditText input = findViewById(R.id.input);
 
-
                 FirebaseDatabase.getInstance().getReference().push()
                         .setValue(new ChatMessage(input.getText().toString(),FirebaseAuth.getInstance()
                         .getCurrentUser().getDisplayName()));
@@ -69,10 +69,11 @@ public class MainActivity extends AppCompatActivity {
 
         FirebaseListAdapter<ChatMessage> adapter = new FirebaseListAdapter<ChatMessage>(options) {
             @Override
-            protected void populateView(@NonNull View v, @NonNull ChatMessage model, int position) {
+            protected void populateView( View v,ChatMessage model, int position) {
                 TextView messageText = v.findViewById(R.id.message_text);
                 TextView messageUser = v.findViewById(R.id.message_user);
                 TextView messageTime = v.findViewById(R.id.message_time);
+
 
                 messageText.setText(model.getMessageText());
                 messageUser.setText(model.getMessageUser());
